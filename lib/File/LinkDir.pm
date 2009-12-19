@@ -5,13 +5,13 @@ use warnings;
 
 use Cwd qw<abs_path getcwd>;
 use File::Find;
-use File::Path qw<remove_tree>;
+use File::Path qw<remove_tree make_path>;
 use File::Spec::Functions qw<catpath splitpath>;
 use Getopt::Long qw<:config auto_help bundling>;
 use Pod::Find qw<pod_where>;
 use Pod::Usage;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 my ($dry_run, $source, $dest, $recursive, $force, @add_ignore);
 my $ignore = '(?:.*/)?.(?:git|svn)(?:/.*)?$';
 
