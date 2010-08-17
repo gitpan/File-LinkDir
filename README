@@ -1,0 +1,16 @@
+NAME
+    File::LinkDir - Create symlinks in one directory for files in another
+
+SYNOPSIS
+     use File::LinkDir;
+     File::LinkDir->run();
+
+AUTHOR
+    Hinrik Örn Sigurðsson, hinrik.sig@gmail.com
+
+LICENSE AND COPYRIGHT
+    Copyright 2009 Hinrik Örn Sigurðsson
+
+    This program is free software, you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

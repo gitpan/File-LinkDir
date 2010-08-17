@@ -1,7 +1,13 @@
 package File::LinkDir;
+BEGIN {
+  $File::LinkDir::AUTHORITY = 'cpan:HINRIK';
+}
+BEGIN {
+  $File::LinkDir::VERSION = '0.06';
+}
 
 use strict;
-use warnings;
+use warnings FATAL => 'all';
 
 use Cwd qw<abs_path getcwd>;
 use File::Find;
@@ -11,7 +17,6 @@ use Getopt::Long qw<:config auto_help bundling>;
 use Pod::Find qw<pod_where>;
 use Pod::Usage;
 
-our $VERSION = '0.05';
 my ($dry_run, $source, $dest, $recursive, $force, @add_ignore);
 my $ignore = '(?:.*/)?.(?:git|svn)(?:/.*)?$';
 
@@ -24,7 +29,12 @@ sub run {
         'i|ignore=s'     => \$ignore,
         'a|add-ignore=s' => \@add_ignore,
         'f|force'        => \$force,
-        'v|version'      => sub { print "link-files version $VERSION\n"; exit },
+        'v|version'      => sub {
+            no strict 'vars';
+            my $version = defined $VERSION ? $VERSION : 'dev-git';
+            print "link-files version $version\n";
+            exit;
+        },
     ) or pod2usage(-input => pod_where({-inc => 1}, 'link-files'));
 
     $source = abs_path($source) if defined $source;
@@ -168,7 +178,7 @@ sub normal {
     }
 }
 
-=encoding UTF-8
+=encoding utf8
 
 =head1 NAME
 
