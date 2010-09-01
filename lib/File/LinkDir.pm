@@ -3,7 +3,7 @@ BEGIN {
   $File::LinkDir::AUTHORITY = 'cpan:HINRIK';
 }
 BEGIN {
-  $File::LinkDir::VERSION = '0.06';
+  $File::LinkDir::VERSION = '0.07';
 }
 
 use strict;
@@ -18,7 +18,7 @@ use Pod::Find qw<pod_where>;
 use Pod::Usage;
 
 my ($dry_run, $source, $dest, $recursive, $force, @add_ignore);
-my $ignore = '(?:.*/)?.(?:git|svn)(?:/.*)?$';
+my $ignore = '(?:.*/)?.(?:git.*|svn)(?:/.*)?$';
 
 sub run {
     GetOptions(

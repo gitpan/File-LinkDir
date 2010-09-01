@@ -24,9 +24,9 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'File::LinkDir',
   'PREREQ_PM' => {
-    'File::Path' => '0'
+    'File::Path' => '2.08'
   },
-  'VERSION' => '0.06',
+  'VERSION' => '0.07',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-README.pod
 bin/link-files
 dist.ini
 lib/File/LinkDir.pm

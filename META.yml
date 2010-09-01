@@ -18,11 +18,11 @@ no_index:
     - t
     - utils
 requires:
-  File::Path: 0
+  File::Path: 2.08
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=File-LinkDir
   homepage: http://search.cpan.org/dist/File-LinkDir/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/hinrik/file-linkdir.git
-version: 0.06
+version: 0.07
 x_authority: cpan:HINRIK
