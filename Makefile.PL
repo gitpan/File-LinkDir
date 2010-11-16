@@ -1,55 +1,11 @@
+use inc::Module::Install;
 
-use strict;
-use warnings;
+name           ('File-LinkDir');
+all_from       ('lib/File/LinkDir.pm');
+githubmeta     ();
 
+requires       ('File::Path'   => '2.07');
+test_requires  ('Test::More'   => '0');
+tests_recursive();
 
-
-use ExtUtils::MakeMaker 6.31;
-
-
-
-my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Create symlinks in one directory for files in another',
-  'AUTHOR' => 'Hinrik Örn Sigurðsson <hinrik.sig@gmail.com>',
-  'BUILD_REQUIRES' => {
-    'Test::Script' => '1.07'
-  },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
-  },
-  'DISTNAME' => 'File-LinkDir',
-  'EXE_FILES' => [
-    'bin/link-files'
-  ],
-  'LICENSE' => 'perl',
-  'NAME' => 'File::LinkDir',
-  'PREREQ_PM' => {
-    'File::Path' => '2.08'
-  },
-  'VERSION' => '0.07',
-  'test' => {
-    'TESTS' => 't/*.t'
-  }
-);
-
-
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
-}
-
-delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
-
-WriteMakefile(%WriteMakefileArgs);
-
-
-
+WriteAll();
